@@ -1,0 +1,78 @@
+% Graduate thesis BSU Format, Kasper van Wijk
+
+% if you don't want two-sided printing, erase the twoside option
+% from the following line:
+\documentclass[twoside,12pt]{report}
+
+% custom file for BSU style by KvW, 2006:
+\usepackage{BSUthesis}
+
+\newcommand\inputfile[1]{%
+    \InputIfFileExists{#1}{}{\typeout{No file #1.}}%
+} % this command keep latexmk from erroring when \input is missing
+
+\begin{document}
+
+% bunch of fields to enter:
+\author{Kasper van Wijk}
+\degree{Doctor of Philosophy}
+\discipline{Geophysics}
+\title{template for a BSU graduate thesis}
+\advisor{Dr. Paul Michaels}{Professor of Geophysics}
+\dean{John R. (Jack) Pelton}{Dean of the Graduate College}
+% insert month and year of your thesis, only:
+\date{November, 2007}
+% optional external member: 
+% \extmember{Dr. Jane Doe}{Doctor of Experimental
+%   Philosophy}{University of Chicago}
+\dedication{to all us geeks out there}
+
+\maketitle
+
+\makecopyright
+
+\submittalsheet
+
+\makededication
+
+\input acknowledgment
+
+\input autobiographics
+
+\input abstract
+
+\cleardoublepage
+\tableofcontents
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{List of figures} 
+\listoffigures
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{List of tables} 
+\listoftables
+
+% start of main text (reset pagenumbers, etc.):
+\begintext
+
+\input intro
+
+\input chapter
+
+% bibliography:
+\cleardoublepage
+\addcontentsline{toc}{chapter}{References} 
+\bibliography{example}
+\bibliographystyle{authordate1}
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Appendices}
+\appendix
+\input appendix
+
+\end{document}
+
+
+
+
+

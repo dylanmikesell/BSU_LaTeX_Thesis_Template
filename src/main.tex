@@ -1,0 +1,101 @@
+% Graduate thesis BSU Format, Kasper van Wijk
+
+% if you don't want two-sided printing, erase the twoside option
+% from the following line:
+\documentclass[12pt]{report}
+
+% custom file for BSU style by KvW, 2006:
+\usepackage{BSUthesis}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+
+\begin{document}
+
+% bunch of fields to enter:
+\author{Thomas Dylan Mikesell}
+\degree{Doctor of Philosophy}
+\discipline{Geophysics}
+\title{Subsurface characterization using head-wave artifacts in
+seismic interferometry}
+\advisor{Dr. Kasper van Wijk}{Associate Professor of Geophysics}
+\dean{John R. (Jack) Pelton}{Dean of the Graduate College}
+%\extmember{Dr. Andrew Curtis}{Total Professor of Mathematical
+%  Geoscience}{University of Edinburgh}
+% insert month and year of your thesis, only:
+%\date{May, 2012}
+%\date{\today}
+% optional external member: 
+%\extmember{Dr. Andrew Curtis}{Total Professor of Mathematical
+%  Geoscience}{University of Edinburgh}
+
+%\dedication{to all us geeks out there}
+
+\maketitle
+
+\makecopyright
+
+\submittalsheet
+
+%\makededication
+
+\input acknowledgment
+
+%\input autobiographics
+
+\input abstract
+
+\cleardoublepage
+\tableofcontents
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{List of figures} 
+\listoffigures
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{List of tables} 
+\listoftables
+
+% start of main text (reset pagenumbers, etc.):
+\begintext
+
+\input intro
+
+\input chapter2
+
+\input chapter3
+
+\input chapter4
+
+\input chapter5
+
+\input chapter6
+
+\input conclusion
+
+\cleardoublepage
+% bibliography:
+\addcontentsline{toc}{chapter}{References} 
+
+\bibliography{refs}
+%\bibliographystyle{authordate1}
+\bibliographystyle{bsu}
+
+\cleardoublepage
+% appendices:
+\addcontentsline{toc}{chapter}{Appendices}
+\appendix
+
+\input appendix_tdiff
+
+\input appendix_error
+
+\input appendix_3C
+
+\input appendix_refs2
+
+\end{document}
+
+
+
+
+
