@@ -18,7 +18,7 @@ This will create a pdf file called BSUmain.pdf. You can use your favorite pdf vi
 
 Natbib.pdf in the main directory teaches you how to use the natbib package for different inline citation styles. You can compile the bibliography by running:
 
-`bibtex BSUmain`
+`$ bibtex BSUmain`
 
 (running `make` in the previous command will also do compile the bibliography automatically!)
 
@@ -42,11 +42,11 @@ There is a testpage.tex that comes with your installation of latex. Compile it a
 
 The default paper size can be changed, in TeX Live, via tlmgr:
 
-`tlmgr paper letter`
+`$ tlmgr paper letter`
 
 or
 
-`tlmgr paper a4`
+`$ tlmgr paper a4`
 
 This can only be changed by 'root', so please contact your system administrator if you do not have 'root' privileges. LaTeX assumes a4 papersize out of the box!!
 
