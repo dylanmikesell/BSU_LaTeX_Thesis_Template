@@ -1,8 +1,11 @@
-Boise, 09/23/15, Dylan Mikesell:
+## Boise, 09/23/15, Dylan Mikesell:
+
 ------------------------------------------------------------------------
+
 Here's a template for BSU graduate theses. If you find problems with it, please e-mail the BSU latex users group at bsulatex@cgiss.boisestate.edu or even better would be to open an [issue](https://github.com/dylanmikesell/BSU_LaTeX_Thesis_Template/issues). If you used the template successfully, please shoot me a message, so that I can keep track.
 
 This directory should be pretty self-contained, with the style files and such. If you miss packages in your installation of latex, go to: http://www.ctan.org/
+
 ------------------------------------------------------------------------
 
 ## HOW TO COMPILE THE DOCUMENT
@@ -24,7 +27,6 @@ If you do not have `pdflatex`, `latex` will also work (see the _Makefile_ to fig
 #### IMPORTANT NOTE: 
 
 Latex will tell you when it was fully successful in generating BSUmain.pdf. If you are running individual commands (e.g. `pdflatex` and `bibtex`) rather than using the `make` command then you may need to repeat both commands until the references are updated. If you are using a program like TexStudio or Kyle to _build_ your document, these packages should handle the repeated compiling so that the final pdf is updated.
-
 
 ------------------------------------------------------------------------
 
