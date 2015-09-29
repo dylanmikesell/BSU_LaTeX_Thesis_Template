@@ -1,0 +1,2 @@
+\contentsline {section}{\numberline {1}My first section}{3}
+\contentsline {section}{\numberline {2}Adios}{4}

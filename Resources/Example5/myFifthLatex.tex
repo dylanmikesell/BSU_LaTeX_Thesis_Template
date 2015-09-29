@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{xspace}
+\newcommand{\latex}{\LaTeX\xspace}
+
+\usepackage{graphicx} % need to include the 'graphicx' package for figures.
+\graphicspath{{./Figs/}} % Tell LaTeX where it should look for your figures.
+
+% For groups of figure folders you can do this...
+% \graphicspath{{subdir1/}{subdir2/}{subdir3/}...{subdirn/}} 
+
+
+\author{Dylan Mikesell} % define the author
+\title{\latex Tutorial} % define the title
+\date{01 October 2015} % set the date (for today you can use the command \today instead of explicitly writing the date.)
+
+% end the PREAMBLE
+%------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle % generate the title
+
+\newpage
+
+\tableofcontents % make a table of contents
+
+\newpage
+
+\section{My first section} % make a section for the table of contents
+
+This is my first \latex document. And this is my first figure reference (Fig.~\ref{fig:firstFigure}).% type some words
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\columnwidth]{LaTeXLogo.png}
+	% \includegraphics[width=0.5\columnwidth]{./Figs/LaTeXLogo.png}
+	\caption{This is my first figure.}
+	\label{fig:firstFigure}
+\end{figure}
+
+\newpage
+
+\section{Adios} % make a final section
+
+\ldots{} and that's it.
+
+\end{document}

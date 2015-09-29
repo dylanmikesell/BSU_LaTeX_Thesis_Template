@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage{xspace}
+\newcommand{\latex}{\LaTeX\xspace}
+
+\usepackage{graphicx} % need to include the 'graphicx' package for figures.
+\graphicspath{{./Figs/}} % Tell LaTeX where it should look for your figures.
+
+% For groups of figure folders you can do this...
+% \graphicspath{{subdir1/}{subdir2/}{subdir3/}...{subdirn/}} 
+
+\usepackage{verbatim} % this allows us to type latex commands, but not interpet them
+
+\author{Dylan Mikesell} % define the author
+\title{\latex Tutorial} % define the title
+\date{01 October 2015} % set the date (for today you can use the command \today instead of explicitly writing the date.)
+
+% end the PREAMBLE
+%------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle % generate the title
+
+%------------------------------------------------------------------------------
+\newpage
+
+\tableofcontents % make a table of contents
+
+\newpage
+
+\section{My first section} % make a section for the table of contents
+
+%------------------------------------------------------------------------------
+% Make a figure example
+%------------------------------------------------------------------------------
+
+This is my first \latex document. And this is my first figure reference (Fig.~\ref{fig:firstFigure}).% type some words
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\columnwidth]{LaTeXLogo.png}
+	% \includegraphics[width=0.5\columnwidth]{./Figs/LaTeXLogo.png}
+	\caption{This is my first figure.}
+	\label{fig:firstFigure}
+\end{figure}
+
+%------------------------------------------------------------------------------
+% Make a table example
+%------------------------------------------------------------------------------
+This is my first table (Tab.~\ref{tab:firstTable}).
+
+% what does the \noindent command do? Uncomment line below.
+% \noindent This is my first table (Tab.~\ref{tab:firstTable}).
+
+\begin{table}[b]
+	% \centering
+	\begin{tabular}{l|c|r}
+	$a \approx b$ & $a \ne b$ & $a = \int_{t_0}^{t_1} \frac{g(t)}{t} dt $ \\ \hline
+	\textbf{column 1} & \textbf{column 2} & \textbf{column 3} \\ \hline
+	\end{tabular}
+	\caption{I just made my first table!}
+	\label{tab:firstTable}
+\end{table}
+
+%------------------------------------------------------------------------------
+% Make some equation examples
+%------------------------------------------------------------------------------
+
+We can make an inline equation with \textit{\$\$ arg \$\$}, but the equation will not have a number associated with it. e.g. $$ a = \frac{1}{N} $$
+
+We can add an equation using the equation environmnt (e.g. eq.~\ref{eqn:equation}). 
+\begin{verbatim}
+	\begin{equation}
+		A\mathbf{x} = \mathbf{y}
+		\label{eqn:equation}
+	\end{equation}
+\end{verbatim}
+
+\begin{equation}
+	A\mathbf{x} = \mathbf{y}
+	\label{eqn:equation}
+\end{equation}
+
+We could also make an equation using the eqnarray environment (e.g. eq.~\ref{eqn:eqnarray}).
+\begin{verbatim}
+	\begin{eqnarray}
+		\nonumber
+		A\mathbf{x} = \mathbf{y} \\
+		while \ \mathbf{x}_{i} \ge 0 
+		\label{eqn:eqnarray}
+	\end{eqnarray}
+\end{verbatim}
+
+\begin{eqnarray}
+	\nonumber
+	A\mathbf{x} = \mathbf{y} \\
+	while \ x_{i} \ge 0 
+	\label{eqn:eqnarray}
+\end{eqnarray}
+
+%------------------------------------------------------------------------------
+\newpage
+
+\section{Adios} % make a final section
+
+\ldots{} and that's it.
+
+\end{document}

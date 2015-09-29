@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage{xspace}
+\newcommand{\latex}{\LaTeX\xspace}
+
+\usepackage{natbib} % This is the 
+
+\usepackage{verbatim} % this allows us to type latex commands, but not interpet them
+
+\usepackage{hyperref}
+\hypersetup{
+     colorlinks   = true,
+     citecolor    = red,
+     linkcolor    = blue,
+     urlcolor     = blue
+}
+
+\author{Dylan Mikesell} % define the author
+\title{\latex Tutorial} % define the title
+\date{01 October 2015} % set the date (for today you can use the command \today instead of explicitly writing the date.)
+
+% end the PREAMBLE
+%------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle % generate the title
+
+%------------------------------------------------------------------------------
+\newpage
+
+\tableofcontents % make a table of contents
+
+\newpage
+
+\section{My first section} % make a section for the table of contents
+\label{sec:firstSection}
+
+You can reference Section~\ref{sec:hyper} on page~\pageref{sec:hyper} by labeling your section and calling it, e.g.
+
+\begin{verbatim}
+	\section{Check the hyperref package out!}
+	\label{sec:hyper}
+
+	Section~\ref{sec:hyper} 
+
+	page~\pageref{sec:hyper}
+\end{verbatim}
+
+%------------------------------------------------------------------------------
+% Make a bibtex example
+%------------------------------------------------------------------------------
+\section{Bibtex} % make a bibliography
+
+You can also reference the volcano tomography work of \citet{Lees2007} using
+\begin{verbatim}
+	\citet{Lees2007}
+\end{verbatim}
+Check the \textit{natbib} texdocs to see the complete list of citation styles. There is also a pdf in the main BSU\_LaTeX\_Thesis\_Template folder.
+
+\section{How to make the bibliography}
+
+We can make the reference list with
+\begin{verbatim}
+\bibliography{myBibFile.bib}
+\bibliographystyle{authordate1}
+\end{verbatim}
+where \textit{myBibFile.bib} is my bibtex library file that contains:
+\begin{verbatim}
+@article{Lees2007,
+author = {Lees, Jonathan M.},
+doi = {10.1016/j.jvolgeores.2007.06.008},
+isbn = {0377-0273},
+issn = {03770273},
+journal = {Journal of Volcanology and Geothermal Research},
+number = {1-4},
+pages = {37--56},
+title = {{Seismic tomography of magmatic systems}},
+volume = {167},
+year = {2007}
+}
+\end{verbatim}
+and \textit{authordate1} is the format I want to use.
+
+\newpage
+
+\section{Check the hyperref package out!}
+\label{sec:hyper}
+
+The hyperref package allows you to make all references within your document clickable links. Add this to your preamble
+
+\begin{verbatim}
+	\usepackage{hyperref}
+	\hypersetup{
+	     colorlinks   = true,
+	     citecolor    = red,
+	     linkcolor    = blue,
+	     urlcolor     = blue
+	}
+\end{verbatim}
+and then you can make link to a webpage with 
+\begin{verbatim}
+	\href{https://tobi.oetiker.ch/lshort/lshort.pdf}{here}
+\end{verbatim}
+where \textit{here} will be the title of the link. All of you references, sections, equation, figure labels, etc. will automatically be clickable links. See the \textit{Lees} example on page~\pageref{sec:firstSection}.
+\newpage
+
+\bibliography{myBibFile.bib}
+\bibliographystyle{authordate1}
+
+
+\end{document}

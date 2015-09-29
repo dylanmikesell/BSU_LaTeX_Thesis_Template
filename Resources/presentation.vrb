@@ -1,0 +1,21 @@
+\frametitle{Adding equations}
+
+	Open the file called mySeventhLatex.tex.
+
+	\begin{verbatim}
+	$$ a = \frac{1}{N} $$
+
+	\begin{equation}
+		A\mathbf{x} = \mathbf{y}
+		\label{eqn:equation}
+	\end{equation}
+
+	\begin{eqnarray}
+		\nonumber
+		A\mathbf{x} = \mathbf{y} \\
+		while \ x_{i} \ge 0
+		\label{eqn:eqnarray}
+	\end{eqnarray}
+	\end{verbatim}
+
+
