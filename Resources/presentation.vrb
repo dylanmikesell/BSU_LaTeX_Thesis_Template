@@ -1,21 +1,33 @@
-\frametitle{Adding equations}
-
-	Open the file called mySeventhLatex.tex.
-
-	\begin{verbatim}
-	$$ a = \frac{1}{N} $$
-
-	\begin{equation}
-		A\mathbf{x} = \mathbf{y}
-		\label{eqn:equation}
-	\end{equation}
-
-	\begin{eqnarray}
-		\nonumber
-		A\mathbf{x} = \mathbf{y} \\
-		while \ x_{i} \ge 0
-		\label{eqn:eqnarray}
-	\end{eqnarray}
-	\end{verbatim}
-
-
+\frametitle{TikZ vector fields}
+\begin{figure}
+	\begin{tikzpicture}
+	\draw (0, 0) grid (4, 3);
+	\foreach \x/\angle in {0.5/20, 1.5/40, 2.5/60, 3.5/80} {
+	    \foreach \y in {0.5, 1.5, 2.5} {
+    	    \fill (\x,\y) circle[radius=1pt];
+        	\draw[->,thick]  (\x, \y) -- ++(\angle:1);
+    	}
+	}
+	\node at (0,2) {(0,2)};
+	\end{tikzpicture}
+	\caption{You can plot vector fields as well.}
+	\label{fig:vectors}
+\end{figure}
+\tiny{
+\begin{verbatim}
+\begin{figure}
+	\begin{tikzpicture}
+	\draw (0, 0) grid (4, 3); % draw a grid
+	\foreach \x/\angle in {0.5/20, 1.5/40, 2.5/60, 3.5/80} { % loop over x and angle
+	    \foreach \y in {0.5, 1.5, 2.5} { % loop over y
+    	    \fill (\x,\y) circle[radius=1pt]; % draw circle at grid center
+        	\draw[->,thick]  (\x, \y) -- ++(\angle:1); % draw line with arrowhead
+    	}
+	}
+	\node[draw,text width=4cm] at (0,2) {(0,2)} % annotate the plot
+	\end{tikzpicture}
+	\caption{You can plot vector fields as well.}
+	\label{fig:vectors}
+\end{figure}
+\end{verbatim}
+}
