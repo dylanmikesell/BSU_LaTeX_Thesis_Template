@@ -1,5 +1,6 @@
 % Here is the style file for BSU theses. DO NOT CHANGE. If you 
-% think you have found a bug, please shoot me an e-mail. KvW, 2006.
+% think you have found a bug, please email
+% bsulatex@cigss.boisestate.edu
 
 % for a times roman font:
 %\usepackage{mathptmx}
@@ -8,68 +9,67 @@
 % for colored hyperlinks in the pdf, uncomment the next two lines:
 %\usepackage[colorlinks,citecolor=blue,bookmarks=true]{hyperref}
 %\hypersetup{pageanchor=false}
-
+%------------------------------------------------------------------------------
 %\usepackage{changepage}
 \usepackage{chngpage}
-
+%------------------------------------------------------------------------------
 % specific request from Jodi about the Chapter header:
 %\addcontentsline{toc}{chapter}{\MakeUpperCase{#1}}
 %\usepackage{titlesec}
 %\titleformat{\chapter}
 %{\Large\bfseries\MakeUppercase}{\MakeUppercase\chaptertitlename \ \thechapter :}{20pt}{\Large}
-
+%------------------------------------------------------------------------------
 % package to display (zipped) postscript files, or pdf: 
 \usepackage{graphicx}
-
+%------------------------------------------------------------------------------
 % this is needed for spacing:
 \usepackage{setspace} 
 \doublespacing
-
+%------------------------------------------------------------------------------
 % this is needed for the month year format
 \usepackage{datetime}
-
+%------------------------------------------------------------------------------
 % for nice bibtex options such as \citep and \citet:
 \usepackage{natbib}
-
+%------------------------------------------------------------------------------
 % \thebibliography: watch out for conflicts with reference packages
 \renewcommand{\bibname}{REFERENCES}
-
+%------------------------------------------------------------------------------
 % especially for school wishes for first page of a chapter:
 \usepackage{fancyhdr}
 % margins defined by BSU:
 \usepackage[left=1.5in,right=1in,top=1in,bottom=1in,letterpaper,includehead,includefoot]{geometry}
-
+%------------------------------------------------------------------------------
 \def\degree#1{\gdef\@degree{#1}}
 \def\discipline#1{\gdef\@discipline{#1}}
-
+%------------------------------------------------------------------------------
 %advisor
 \def\advisor{\@ifnextchar[{\@advisor}{\@advisor[Thesis Advisor]}}
 \def\@advisor[#1]#2#3{\gdef\@advisorname{#2}\gdef\@advisortitle{#3}
-  \gdef\@advisorfunction{#1}}
-
+\gdef\@advisorfunction{#1}}
+%------------------------------------------------------------------------------
 % co-advisor
 %\def\coadvisor{\@ifnextchar[{\@coadvisor}{\@coadvisor[Thesis Co-advisor]}}
 %\def\@coadvisor[#1]#2#3{\gdef\@coadvisorname{#2}\gdef\@coadvisortitle{#3}
 % \gdef\@coadvisorfunction{#1}}
-
+%------------------------------------------------------------------------------
 % dean
 \def\dean#1#2{\gdef\@deanname{#1}\gdef\@deantitle{#2}}
-
+%------------------------------------------------------------------------------
 % external member
 % \def\extmember{\@ifnextchar[{\@extmember}{\@advisor[Thesis Advisor]}}
 % \def\extmember#1#2#3{\gdef\@extname{#1}\gdef\@exttitle{#2}
 % \gdef\@extinstitution{#3}}
-
-
+%------------------------------------------------------------------------------
 \def\dedication#1{\gdef\@dedication{#1}}
 \def\makededication{\cleardoublepage
-  \vspace*{2.5cm}
-  \begin{flushright}
-    \@dedication
-  \end{flushright}
+\vspace*{2.5cm}
+\begin{flushright}
+\@dedication
+\end{flushright}
 }
 \gdef\@dedication{}
-
+%------------------------------------------------------------------------------
 % title page:
 \def\maketitle{\cleardoublepage
   \begin{titlepage}%
@@ -77,7 +77,7 @@
       % \setcounter{page}{1}%
       \pagenumbering{roman}
       \begin{center}%
-        \vspace*{0.1in}
+      \vspace*{0.1in}
         {\large \MakeUppercase{\@title} \par}%   
         \vfill                     % Vertical space after title.
         {by\\}              % Set author in \normalsize.
@@ -93,60 +93,58 @@
         \monthname[5] \number\year
         % \monthname[5] stands for May. Adjust accordingly
 
-      \end{center}\par
-    \end{adjustwidth}
+        \end{center}\par
+        \end{adjustwidth}
   \end{titlepage}%
   % \setcounter{footnote}{0}% % Footnotes start at zero again.
   % \let\thanks\relax \gdef\@thanks{}
   \let\maketitle\relax}
 %% end changes to titlepag.sty
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-
+%------------------------------------------------------------------------------ 
 % submittal sheet (might differ from department to department!)
 \def\submittalsheet{
-  \cleardoublepage 
+\cleardoublepage 
   \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
-    \begin{flushleft}
-      The thesis presented by {\@author} entitled \MakeUppercase{\@title} is
-      hereby approved:
-    \end{flushleft}
-    
-    \vspace{1in}
-    
-    \begin{singlespace}
-      \begin{flushright}
+  \begin{flushleft}
+  The thesis presented by {\@author} entitled \MakeUppercase{\@title} is
+  hereby approved:
+  \end{flushleft}
+
+  \vspace{1in}
+
+  \begin{singlespace}
+  \begin{flushright}
         % Approved:\ 
         \begin{minipage}[t]{2.5in}
-          \underline{\hspace{2.5in}}\\ 
-          \@advisorname \hfill Date\\
-          \@advisortitle\\
-          \@advisorfunction
+        \underline{\hspace{2.5in}}\\ 
+        \@advisorname \hfill Date\\
+        \@advisortitle\\
+        \@advisorfunction
         \end{minipage}
-      \end{flushright}
-      
-      \vspace{1in}
-      
-      \begin{flushright}
+        \end{flushright}
+
+        \vspace{1in}
+
+        \begin{flushright}
         % Signed:\ 
         \begin{minipage}[t]{2.5in}
-          \underline{\hspace{2.5in}}\\ 
-          Committee Member \hfill Date
+        \underline{\hspace{2.5in}}\\ 
+        Committee Member \hfill Date
         \end{minipage}
-      \end{flushright}
-      
-      \vspace{1in}
-      
-      \begin{flushright}
+        \end{flushright}
+
+        \vspace{1in}
+
+        \begin{flushright}
         % Signed:\ 
         \begin{minipage}[t]{2.5in}
-          \underline{\hspace{2.5in}}\\ 
-          Committee Member \hfill Date
+        \underline{\hspace{2.5in}}\\ 
+        Committee Member \hfill Date
         \end{minipage}
-      \end{flushright}
-      
-      \vspace{1in}
-      
+        \end{flushright}
+
+        \vspace{1in}
+
       % \begin{flushright}
       %   \begin{minipage}[t]{2.5in}
       %     \underline{\hspace{2.5in}}\\ 
@@ -159,57 +157,57 @@
       % \vspace{1in}
       
       \begin{flushright}
-        \begin{minipage}[t]{2.5in}
-          \underline{\hspace{2.5in}}\\
-          {\@deanname} \hfill Date\\
-          \@deantitle
-        \end{minipage}
+      \begin{minipage}[t]{2.5in}
+      \underline{\hspace{2.5in}}\\
+      {\@deanname} \hfill Date\\
+      \@deantitle
+      \end{minipage}
       \end{flushright}
-    \end{singlespace}
-    \thispagestyle{empty}
-  \end{adjustwidth}
-  \par\vfil\null\newpage
-  \gdef\@author{}
-  \gdef\@advisorname{} \gdef\@advisortitle{} \gdef\@advisorfunction{}
-  \gdef\@deanname{} \gdef\@deantitle{} \gdef\@extname{}  \gdef\@exttitle{}
-  \gdef\@extinstitution{}
-  \let\submittalsheet\relax}
-
+      \end{singlespace}
+      \thispagestyle{empty}
+      \end{adjustwidth}
+      \par\vfil\null\newpage
+      \gdef\@author{}
+      \gdef\@advisorname{} \gdef\@advisortitle{} \gdef\@advisorfunction{}
+      \gdef\@deanname{} \gdef\@deantitle{} \gdef\@extname{}  \gdef\@exttitle{}
+      \gdef\@extinstitution{}
+      \let\submittalsheet\relax}
+%------------------------------------------------------------------------------
 % here's the copyright page (if you want one):
 \def\makecopyright{
-  \cleardoublepage
-  \null
-  \vfill
+\cleardoublepage
+\null
+\vfill
   \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
-    \begin{center}
-      {$\copyright$ \number\year \par \@author}\\
-      {\sc ALL RIGHTS RESERVED}
-    \end{center}
-    \thispagestyle{empty}
+  \begin{center}
+  {$\copyright$ \number\year \par \@author}\\
+  {\sc ALL RIGHTS RESERVED}
+  \end{center}
+  \thispagestyle{empty}
   \end{adjustwidth}
   \let\maketitle\relax\let\makecopyright\relax}
-
+%------------------------------------------------------------------------------
 % resetting some things for the actual text in thesis:
 \def\begintext{
-  \cleardoublepage
-  \setcounter{page}{1}
-  \pagenumbering{arabic}
-  \pagestyle{myheadings}
+\cleardoublepage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\pagestyle{myheadings}
   % for the special first page of a chapter:
   \fancypagestyle{plain}{%
-    \fancyhf{}
-    \fancyhead[RO]{\hfill \thepage}
-    \renewcommand\headrulewidth{0pt}
-    \renewcommand\footrulewidth{0pt}
-    \renewcommand\headsep{0pt}
-    \renewcommand\footskip{0pt}
+  \fancyhf{}
+  \fancyhead[RO]{\hfill \thepage}
+  \renewcommand\headrulewidth{0pt}
+  \renewcommand\footrulewidth{0pt}
+  \renewcommand\headsep{0pt}
+  \renewcommand\footskip{0pt}
   }
-}
-
+  }
+%------------------------------------------------------------------------------
 % to set the style of the table of content:
 \renewcommand\contentsname{table of contents}
 \renewcommand*\l@chapter[2]{%
-  \ifnum \c@tocdepth >\m@ne
+\ifnum \c@tocdepth >\m@ne
   \addpenalty{-\@highpenalty}%
   \vskip 1.0em \@plus\p@
   \setlength\@tempdima{1.5em}%
@@ -221,17 +219,17 @@
   \hskip -\leftskip
   \MakeUppercase{#1}\nobreak\ 
   \leaders\hbox{$\m@th
-    \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
-    mu$}\hfil\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+  \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+  mu$}\hfil\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
   \penalty\@highpenalty
   \endgroup
   \fi} 
-
+%------------------------------------------------------------------------------
 % this is the definition for \chapter{}
 \def\@makechapterhead#1{%
   \vspace*{50\p@}%
   {\parindent \z@ \raggedright \normalfont
-    \ifnum \c@secnumdepth >\m@ne
+  \ifnum \c@secnumdepth >\m@ne
     \centering \Large\bfseries\MakeUppercase \@chapapp\space \thechapter : % colon here fixes as well as upper case
     \par\nobreak
     \vskip 20\p@
@@ -239,24 +237,24 @@
     \interlinepenalty\@M
     \Large\bfseries \MakeUppercase{#1}\par\nobreak % makeuppercase here sets the actual uppercase
     \vskip 40\p@
-  }
-}
-
+    }
+    }
+%------------------------------------------------------------------------------
 % this is the definition with \chatper*{}...I also made this uppercase
 % this part is important because TOC, LOF, LOT headers are set using
 % this. So we need to set \Large to match the chatper size
 \def\@makeschapterhead#1{%
   \vspace*{50\p@}%
   {\parindent \z@ \raggedright
-    \normalfont
-    \interlinepenalty\@M
+  \normalfont
+  \interlinepenalty\@M
     \centering \Large \bfseries \MakeUppercase{#1}\par\nobreak % uppercase here and set \Large to match
     \vskip 40\p@
-  }
-}
-
+    }
+    }
+%------------------------------------------------------------------------------
 \renewcommand\section{\@startsection {section}{1}{\z@}%
                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
                                    {2.3ex \@plus.2ex}%
                                    {\centering\normalfont\Large\bfseries}}
-
+%------------------------------------------------------------------------------

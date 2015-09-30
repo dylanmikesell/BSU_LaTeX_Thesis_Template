@@ -8,11 +8,22 @@
 
 % Look at example 9 for how to make pdf handouts of slides.
 \usepackage{verbatim}
+%------------------------------------------------------------------------------
 \usepackage{xspace}
+%------------------------------------------------------------------------------
 \usepackage{pdfpages} % this allows us to include our Example!/*.pdf files
+%------------------------------------------------------------------------------
 \usepackage{syntonly} % just check the syntax, don't actually compile.
 %\syntaxonly
-
+%------------------------------------------------------------------------------
+\usepackage{amssymb} % AMS symbols like a \checkmark
+%------------------------------------------------------------------------------
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand{\polygon}[2]{%
+  let \n{len} = {2*#2*tan(360/(2*#1))} in
+ ++(0,-#2) ++(\n{len}/2,0) \foreach \x in {1,...,#1} { -- ++(\x*360/#1:\n{len})}}
+%------------------------------------------------------------------------------
 \usepackage{hyperref}
 \hypersetup{
      colorlinks   = true,
@@ -20,7 +31,7 @@
      linkcolor    = blue,
      urlcolor     = blue
 }
-
+%------------------------------------------------------------------------------
 \begin{document}
 
 \newcommand{\latex}{\LaTeX\xspace}
@@ -402,28 +413,143 @@ learn how to write a document so that it can be processed by \latex.
 	
 \end{frame}
 %------------------------------------------------------------------------------
-\begin{frame}{More refencing}
+\begin{frame}{Bibliography}
 
 	\includepdf[pages={3},frame=true,scale=0.8]{Example8/myEigthLatex.pdf}
 
 	\footnotetext[1]{You can go to \textit{Example8} in the \textit{Resources/} folder in the git repository to find myEightLatex.tex.}
 \end{frame}
+%------------------------------------------------------------------------------
+\begin{frame}{natbib package}
 
+	\includepdf[pages={1},frame=true,scale=0.8]{../natbib.pdf}
 
-%% making itemize and enumerated lists.
+\end{frame}
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]{Bulleted list}
+	\begin{columns}[c]
+		\begin{column}{0.48\textwidth}
+			\begin{verbatim}
+			\begin{itemize}
+				\item This is the default 
+					bullet
+				\item[X] This is an X bullet
+				\item[\checkmark] This is 
+					a \checkmark bullet from 
+					\usepackage{amssym}
+			\end{itemize}
+			\end{verbatim}
+		\end{column}
+		\hfill
+		\begin{column}{0.48\textwidth}
+			\begin{itemize}
+				\item This is the default bullet
+				\item[X] This is an X bullet
+				\item[\checkmark] This is a \checkmark bullet from {\textbackslash}usepackage\{amssym\}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]{Enumerated list}
+	\begin{columns}[c]
+		\begin{column}{0.48\textwidth}
+			\begin{verbatim}
+			\begin{enumerate}
+				\item This is number 1
+				\item This is number 2
+				\item This is number 3
+			\end{enumerate}
+			\end{verbatim}
+		\end{column}
+		\hfill
+		\begin{column}{0.48\textwidth}
+			\begin{enumerate}
+				\item This is number 1
+				\item This is number 2
+				\item This is number 3
+			\end{enumerate}
+		\end{column}
+	\end{columns}
+\end{frame}
 
-%% the BSU thesis template.
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]{TikZ diagrams}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[red,dashed] (0,0) circle (1);
+		\draw (0,0) \polygon{4}{1};
+	
+		\draw[red,dashed] (3,0) circle (1);
+		\draw (3,0) \polygon{7}{1};
 
-%% diego's package to draw vector fields
+		\draw[red,dashed] (6,0) circle (1);
+		\draw (6,0) \polygon{8}{1};
 
-% Chapter 5 shows how to use LATEX for creating graphics. Instead of drawing a
-% picture with some graphics program, saving it to a file and then including
-% it into LATEX, you describe the picture and have LATEX draw it for you.
+		\draw[red,dashed] (9,0) circle (1);
+		\draw (9,0) \polygon{20}{1};
+
+	\end{tikzpicture}
+	\caption{(from left to right) Polygons with 4 sides, 7 sides, 8 sides and 100 sides used to approximate the circle drawn in red.}
+	\label{fig:circle}
+\end{figure}
+\tiny{
+\begin{verbatim}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand{\polygon}[2]{%
+  let \n{len} = {2*#2*tan(360/(2*#1))} in
+ ++(0,-#2) ++(\n{len}/2,0) \foreach \x in {1,...,#1} { -- ++(\x*360/#1:\n{len})}}
+...
+	\begin{tikzpicture}
+		\draw[red,dashed] (0,0) circle (1);
+		\draw (0,0) \polygon{4}{1};
+	\end{tikzpicture}
+\end{verbatim}
+}
+\end{frame}
 
 
 %------------------------------------------------------------------------------
+\begin{frame}[fragile]{TikZ vector fields}
+\begin{figure}
+	\begin{tikzpicture}
+	\draw (0, 0) grid (4, 3);
+	\foreach \x/\angle in {0.5/20, 1.5/40, 2.5/60, 3.5/80} {
+	    \foreach \y in {0.5, 1.5, 2.5} {
+    	    \fill (\x,\y) circle[radius=1pt];
+        	\draw[->,thick]  (\x, \y) -- ++(\angle:1);
+    	}
+	}
+	\node at (0,2) {(0,2)}; 
+	\end{tikzpicture}
+	\caption{You can plot vector fields as well.}
+	\label{fig:vectors}
+\end{figure}
+\tiny{
+\begin{verbatim}
+\begin{figure}
+	\begin{tikzpicture}
+	\draw (0, 0) grid (4, 3); % draw a grid
+	\foreach \x/\angle in {0.5/20, 1.5/40, 2.5/60, 3.5/80} { % loop over x and angle
+	    \foreach \y in {0.5, 1.5, 2.5} { % loop over y
+    	    \fill (\x,\y) circle[radius=1pt]; % draw circle at grid center
+        	\draw[->,thick]  (\x, \y) -- ++(\angle:1); % draw line with arrowhead
+    	}
+	}
+	\node[draw,text width=4cm] at (0,2) {(0,2)} % annotate the plot 
+	\end{tikzpicture}
+	\caption{You can plot vector fields as well.}
+	\label{fig:vectors}
+\end{figure}
+\end{verbatim}
+}
+\end{frame}
+%------------------------------------------------------------------------------
 \begin{frame}{Useful links}
 	\begin{itemize}
+		\item \href{https://www.coga.tu-berlin.de/fileadmin/i26/download/AG_DiskAlg/FG_KombOptGraphAlg/kappmeier/How_to_TikZ_-_current.pdf}{How to TikZ}
 		\item \href{https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing}{cross-referencing}
 		\item \href{https://en.wikibooks.org/wiki/LaTeX/Mathematics}{Math symbols}
 		\item \href{https://en.wikibooks.org/wiki/LaTeX/Mathematics}{Hyperlinks} (e.g. for \textit{mailto:})
@@ -439,6 +565,8 @@ learn how to write a document so that it can be processed by \latex.
 
 \end{frame}
 %------------------------------------------------------------------------------
-
+\begin{frame}{BSU thesis template}
+\ldots
+\end{frame}
 
 \end{document}
