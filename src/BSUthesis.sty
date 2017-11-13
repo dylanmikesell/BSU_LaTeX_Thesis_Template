@@ -64,14 +64,14 @@
 % \def\extmember#1#2#3{\gdef\@extname{#1}\gdef\@exttitle{#2}
 % \gdef\@extinstitution{#3}}
 %------------------------------------------------------------------------------
-\def\dedication#1{\gdef\@dedication{#1}}
-\def\makededication{\cleardoublepage
-\vspace*{2.5cm}
-\begin{flushright}
-\@dedication
-\end{flushright}
-}
-\gdef\@dedication{}
+% \def\dedication#1{\gdef\@dedication{#1}}
+% \def\makededication{\cleardoublepage
+% \vspace*{2.5cm}
+% \begin{flushright}
+% \@dedication
+% \end{flushright}
+% }
+% \gdef\@dedication{}
 %------------------------------------------------------------------------------
 % title page:
 \def\maketitle{\cleardoublepage
@@ -178,7 +178,7 @@
 %------------------------------------------------------------------------------
 % here's the copyright page (if you want one):
 \def\makecopyright{
-\cleardoublepage
+% \cleardoublepage
 \null
 \vfill
   \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
@@ -192,7 +192,7 @@
 %------------------------------------------------------------------------------
 % resetting some things for the actual text in thesis:
 \def\begintext{
-\cleardoublepage
+% \cleardoublepage
 \setcounter{page}{1}
 \pagenumbering{arabic}
 \pagestyle{myheadings}
