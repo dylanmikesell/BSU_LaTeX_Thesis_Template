@@ -45,6 +45,7 @@
 %------------------------------------------------------------------------------
 % set the format of \section title and the correct spacing
 \usepackage{titlesec}
+% \titlespacing* means no indent on first paragraph after section title
 \titlespacing*{\section}{0pt}{0em}{0pt}{}
 \titleformat{\section}[hang]
   {\normalfont\Large\bfseries\centering}
@@ -52,13 +53,26 @@
   {1em}
   {}
 %------------------------------------------------------------------------------
+% use this for title on final reading page
+\usepackage{tabularx}
+%------------------------------------------------------------------------------
 \def\degree#1{\gdef\@degree{#1}}
 \def\discipline#1{\gdef\@discipline{#1}}
+\def\oralexamdate#1{\gdef\@oralexamdate{#1}}
 %------------------------------------------------------------------------------
-%advisor
-\def\advisor{\@ifnextchar[{\@advisor}{\@advisor[Thesis Advisor]}}
+% advisor
+\def\advisor{\@ifnextchar[{\@advisor}{\@advisor[Chair, Supervisory Committee]}}
 \def\@advisor[#1]#2#3{\gdef\@advisorname{#2}\gdef\@advisortitle{#3}
 \gdef\@advisorfunction{#1}}
+% committe member A
+\def\committeeMemberA{\@ifnextchar[{\@committeeMemberA}{\@committeeMemberA[Member, Supervisory Committee]}}
+\def\@committeeMemberA[#1]#2#3{\gdef\@committeeMemberAname{#2}\gdef\@committeeMemberAtitle{#3}
+\gdef\@committeeMemberAfunction{#1}}
+% committe member B
+\def\committeeMemberB{\@ifnextchar[{\@committeeMemberB}{\@committeeMemberB[Member, Supervisory Committee]}}
+\def\@committeeMemberB[#1]#2#3{\gdef\@committeeMemberBname{#2}\gdef\@committeeMemberBtitle{#3}
+\gdef\@committeeMemberBfunction{#1}}
+
 %------------------------------------------------------------------------------
 % co-advisor
 %\def\coadvisor{\@ifnextchar[{\@coadvisor}{\@coadvisor[Thesis Co-advisor]}}
@@ -85,7 +99,8 @@
 % title page:
 \def\maketitle{\cleardoublepage
   \begin{titlepage}%
-    \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
+    % \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
+    \begin{adjustwidth}{0.0in}{}%this slides the left margin 0.5in
       % \setcounter{page}{1}%
       \pagenumbering{roman}
       \begin{center}%
@@ -102,7 +117,8 @@
         Boise State University
         
         \vspace*{0.5in}
-        \monthname[5] \number\year
+        % \monthname[5] \number\year
+        \@date
         % \monthname[5] stands for May. Adjust accordingly
 
         \end{center}\par
@@ -116,88 +132,74 @@
 % submittal sheet (might differ from department to department!)
 \def\submittalsheet{
 \cleardoublepage 
-  \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
-  \begin{flushleft}
-  The thesis presented by {\@author} entitled \MakeUppercase{\@title} is
-  hereby approved:
-  \end{flushleft}
+% \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
+\begin{adjustwidth}{0.0in}{}%this slides the left margin 0.5in
 
-  \vspace{1in}
+\begin{center}
+BOISE STATE UNIVERSITY GRADUATE COLLEGE\\
+\vspace{\baselineskip}
+\textbf{DEFENSE COMMITTEE AND FINAL READING APPROVALS}\\
+\vspace{\baselineskip}
+of the thesis submitted by\\
+\vspace{\baselineskip}
+{\@author}\\
+\vspace{\baselineskip}
+\end{center}
 
-  \begin{singlespace}
-  \begin{flushright}
-        % Approved:\ 
-        \begin{minipage}[t]{2.5in}
-        \underline{\hspace{2.5in}}\\ 
-        \@advisorname \hfill Date\\
-        \@advisortitle\\
-        \@advisorfunction
-        \end{minipage}
-        \end{flushright}
+\begin{flushleft}
 
-        \vspace{1in}
+\begin{singlespace}
+\begin{tabularx}{\textwidth}{@{}lX} 
+Thesis Title: & {\@title}
+\end{tabularx}
+\end{singlespace}
 
-        \begin{flushright}
-        % Signed:\ 
-        \begin{minipage}[t]{2.5in}
-        \underline{\hspace{2.5in}}\\ 
-        Committee Member \hfill Date
-        \end{minipage}
-        \end{flushright}
+\begin{tabularx}{\textwidth}{@{}lX} 
+Date of Final Oral Examination: & {\@oralexamdate}
+\end{tabularx}
 
-        \vspace{1in}
+\end{flushleft}
 
-        \begin{flushright}
-        % Signed:\ 
-        \begin{minipage}[t]{2.5in}
-        \underline{\hspace{2.5in}}\\ 
-        Committee Member \hfill Date
-        \end{minipage}
-        \end{flushright}
+\begin{singlespace}
+\noindent The following individuals read and discussed the dissertation submitted by student {\@author}, and they evaluated the student’s presentation and response to questions during the final oral examination. They found that the student passed the final oral examination.\\
+\end{singlespace}
 
-        \vspace{1in}
+\begin{flushleft}
+\begin{tabular}{@{}ll} 
+{\@advisorname} {\@advisortitle} \hspace{2cm} & {\@advisorfunction} \\ 
+{\@committeeMemberAname} {\@committeeMemberAtitle} \hspace{2cm} & {\@committeeMemberAfunction} \\ 
+{\@committeeMemberBname} {\@committeeMemberBtitle} \hspace{2cm} & {\@committeeMemberBfunction}
+\end{tabular}
+\end{flushleft}
 
-      % \begin{flushright}
-      %   \begin{minipage}[t]{2.5in}
-      %     \underline{\hspace{2.5in}}\\ 
-      %     \@extname \hfill {\it date}\\
-      %     \@exttitle\\
-      %     \@extinstitution
-      %   \end{minipage}
-      % \end{flushright}
-      
-      % \vspace{1in}
-      
-      \begin{flushright}
-      \begin{minipage}[t]{2.5in}
-      \underline{\hspace{2.5in}}\\
-      {\@deanname} \hfill Date\\
-      \@deantitle
-      \end{minipage}
-      \end{flushright}
-      \end{singlespace}
-      \thispagestyle{empty}
-      \end{adjustwidth}
-      \par\vfil\null\newpage
-      \gdef\@author{}
-      \gdef\@advisorname{} \gdef\@advisortitle{} \gdef\@advisorfunction{}
-      \gdef\@deanname{} \gdef\@deantitle{} \gdef\@extname{}  \gdef\@exttitle{}
-      \gdef\@extinstitution{}
-      \let\submittalsheet\relax}
+\begin{singlespace}
+\noindent The final reading approval of the thesis was granted by {\@advisorname} {\@advisortitle}, Chair of the Supervisory Committee. The thesis was approved by the Graduate College.
+\end{singlespace}
+
+\thispagestyle{empty}
+\end{adjustwidth}
+
+\par\vfil\null\newpage
+\gdef\@author{}
+\gdef\@advisorname{} \gdef\@advisortitle{} \gdef\@advisorfunction{}
+\gdef\@deanname{} \gdef\@deantitle{} \gdef\@extname{}  \gdef\@exttitle{}
+\gdef\@extinstitution{}
+\let\submittalsheet\relax}
 %------------------------------------------------------------------------------
 % here's the copyright page (if you want one):
 \def\makecopyright{
 % \cleardoublepage
 \null
 \vfill
-  \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
-  \begin{center}
-  {$\copyright$ \number\year \par \@author}\\
-  {\sc ALL RIGHTS RESERVED}
-  \end{center}
-  \thispagestyle{empty}
-  \end{adjustwidth}
-  \let\maketitle\relax\let\makecopyright\relax}
+% \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
+\begin{adjustwidth}{0in}{}%this slides the left margin 0.5in
+\begin{center}
+{$\copyright$ \number\year \par \@author}\\
+{\sc ALL RIGHTS RESERVED}
+\end{center}
+\thispagestyle{empty}
+\end{adjustwidth}
+\let\maketitle\relax\let\makecopyright\relax}
 %------------------------------------------------------------------------------
 % resetting some things for the actual text in thesis:
 \def\begintext{
