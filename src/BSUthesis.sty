@@ -43,6 +43,15 @@
 % set captions to bold font
 \usepackage[labelfont=bf,textfont=bf]{caption}
 %------------------------------------------------------------------------------
+% set the format of \section title and the correct spacing
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{0em}{0pt}{}
+\titleformat{\section}[hang]
+  {\normalfont\Large\bfseries\centering}
+  {\thetitle}
+  {1em}
+  {}
+%------------------------------------------------------------------------------
 \def\degree#1{\gdef\@degree{#1}}
 \def\discipline#1{\gdef\@discipline{#1}}
 %------------------------------------------------------------------------------
@@ -236,11 +245,12 @@
   \ifnum \c@secnumdepth >\m@ne
     \centering \Large\bfseries\MakeUppercase \@chapapp\space \thechapter : % colon here fixes as well as upper case
     \par\nobreak
-    \vskip 20\p@
+    % \vskip 20\p@
     \fi
     \interlinepenalty\@M
     \Large\bfseries \MakeUppercase{#1}\par\nobreak % makeuppercase here sets the actual uppercase
-    \vskip 40\p@
+    %\vskip 40\p@
+    \vskip 12\p@
     }
     }
 %------------------------------------------------------------------------------
@@ -253,12 +263,13 @@
   \normalfont
   \interlinepenalty\@M
     \centering \Large \bfseries \MakeUppercase{#1}\par\nobreak % uppercase here and set \Large to match
-    \vskip 40\p@
+    % \vskip 40\p@
+    \vskip 12\p@
     }
     }
-%------------------------------------------------------------------------------
-\renewcommand\section{\@startsection {section}{1}{\z@}%
-                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
-                                   {2.3ex \@plus.2ex}%
-                                   {\centering\normalfont\Large\bfseries}}
-%------------------------------------------------------------------------------
+% %------------------------------------------------------------------------------
+% \renewcommand\section{\@startsection {section}{1}{\z@}%
+%                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
+%                                    {2.3ex \@plus.2ex}%
+%                                    {\centering\normalfont\Large\bfseries}}
+% %------------------------------------------------------------------------------
