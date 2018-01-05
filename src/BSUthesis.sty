@@ -7,8 +7,10 @@
 
 % hyperlinking is busted because BSU wanted me to redefine the l@chapter:
 % for colored hyperlinks in the pdf, uncomment the next two lines:
-%\usepackage[colorlinks,citecolor=blue,bookmarks=true]{hyperref}
-%\hypersetup{pageanchor=false}
+\usepackage[colorlinks,colorlinks=false,bookmarks=true]{hyperref}
+% \usepackage[colorlinks,citecolor=blue,bookmarks=true]{hyperref}
+\hypersetup{pageanchor=false}
+\usepackage{textcase}
 %------------------------------------------------------------------------------
 %\usepackage{changepage}
 \usepackage{chngpage}
@@ -231,6 +233,10 @@ Date of Final Oral Examination: & {\@oralexamdate}
 %------------------------------------------------------------------------------
 % to set the style of the table of content:
 \renewcommand\contentsname{table of contents}
+% \renewcommand*{\l@chapter}[2]{%
+%   \l@chapapp{\uppercase{#1}}{#2}{\cftchaptername}}
+% \makeatother
+
 \renewcommand*\l@chapter[2]{%
 \ifnum \c@tocdepth >\m@ne
   \addpenalty{-\@highpenalty}%
@@ -242,7 +248,7 @@ Date of Final Oral Examination: & {\@oralexamdate}
   \leavevmode 
   \advance\leftskip\@tempdima
   \hskip -\leftskip
-  \MakeUppercase{#1}\nobreak\ 
+  \uppercase{#1}\nobreak\ 
   \leaders\hbox{$\m@th
   \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
   mu$}\hfil\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
