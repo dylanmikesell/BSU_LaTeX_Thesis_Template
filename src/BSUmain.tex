@@ -6,10 +6,20 @@
 
 % custom file for BSU style by KvW, 2006:
 \usepackage{BSUthesis}
+% \usepackage{acro}
+% probably a good idea for the nomenclature entries:
+% \acsetup{first-style=short}
 
 \newcommand\inputfile[1]{%
     \InputIfFileExists{#1}{}{\typeout{No file #1.}}%
 } % this command keep latexmk from erroring when \input is missing
+
+% For abbreviations
+\makeglossaries
+\loadglsentries{abbreviations}
+% For symbols and nomenclature 
+\makenomenclature
+\input{nomenclature}
 
 \begin{document}
 
@@ -55,13 +65,27 @@
 % \cleardoublepage
 \tableofcontents
 %------------------------------------------------------------------------------
-% \cleardoublepage
+\cleardoublepage
 \addcontentsline{toc}{chapter}{List of figures} 
 \listoffigures
 %------------------------------------------------------------------------------
-% \cleardoublepage
+\cleardoublepage
 \addcontentsline{toc}{chapter}{List of tables} 
 \listoftables
+%------------------------------------------------------------------------------
+% print abbreviations
+\printglossary[title={List of abbreviations},type=\acronymtype]
+%------------------------------------------------------------------------------
+% print symbols
+% \cleardoublepage% or \clearpage
+% \addcontentsline{toc}{chapter}{List of symbols} 
+% \renewcommand{\nomname}{List of symbols}
+% \markboth{\nomname}{\nomname}% maybe with \MakeUppercase
+% \printnomenclature
+
+
+ % \printnomenclature
+
 %------------------------------------------------------------------------------
 % start of main text (reset pagenumbers, etc.):
 %------------------------------------------------------------------------------
