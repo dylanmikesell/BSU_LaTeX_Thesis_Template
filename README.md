@@ -6,7 +6,7 @@ You can find a Microsoft Word template [here](http://graduatecollege.boisestate.
 
 BSU also has a thesis and dissertation page with helpful information [here](https://graduatecollege.boisestate.edu/thesisdissertation/template/).
 
-If you are a Computer Science major, you can find the CS Master's thesis template from Amit Jain [here](http://cs.boisestate.edu/~amit/teaching/handouts/CS%20MS%20Thesis%20Style.html).
+If you are a Computer Science major, you can find the CS Master's thesis template from Amit Jain [here](https://github.com/BoiseState/thesis-dissertation-template).
 
 The template contained in this [GitHub](https://github.com) repository is a generic template meeting the most recent [Boise State University](http://www.boisestate.edu) thesis format requirements. If you have questions or run into problems with the format, please email bsulatex@cgiss.boisestate.edu or open an [issue](https://github.com/dylanmikesell/BSU_LaTeX_Thesis_Template/issues).
 
