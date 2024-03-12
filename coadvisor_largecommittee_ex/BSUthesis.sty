@@ -1,0 +1,317 @@
+% Here is the style file for BSU theses. DO NOT CHANGE. If you 
+% think you have found a bug, please email
+% bsulatex@cigss.boisestate.edu
+
+% for a times roman font:
+%\usepackage{mathptmx}
+
+% hyperlinking is busted because BSU wanted me to redefine the l@chapter:
+% for colored hyperlinks in the pdf, uncomment the next two lines:
+\usepackage[colorlinks,colorlinks=false,bookmarks=true,hidelinks]{hyperref}
+% \usepackage[colorlinks,citecolor=blue,bookmarks=true]{hyperref}
+\hypersetup{pageanchor=false}
+\usepackage{textcase}
+%------------------------------------------------------------------------------
+%\usepackage{changepage}
+\usepackage{chngpage}
+%------------------------------------------------------------------------------
+% abbreviations and acronyms
+\usepackage[automake,nonumberlist,acronyms]{glossaries-extra}
+%------------------------------------------------------------------------------
+% nomenclature
+\usepackage[noprefix,intoc]{nomencl}
+%------------------------------------------------------------------------------
+% specific request from Jodi about the Chapter header:
+%\addcontentsline{toc}{chapter}{\MakeUpperCase{#1}}
+%\usepackage{titlesec}
+%\titleformat{\chapter}
+%{\Large\bfseries\MakeUppercase}{\MakeUppercase\chaptertitlename \ \thechapter :}{20pt}{\Large}
+%------------------------------------------------------------------------------
+% package to display (zipped) postscript files, or pdf: 
+\usepackage{graphicx}
+%------------------------------------------------------------------------------
+% this is needed for spacing:
+\usepackage{setspace} 
+\doublespacing
+%------------------------------------------------------------------------------
+% this is needed for the month year format
+\usepackage{datetime}
+%------------------------------------------------------------------------------
+% for nice bibtex options such as \citep and \citet:
+\usepackage{natbib}
+%------------------------------------------------------------------------------
+% \thebibliography: watch out for conflicts with reference packages
+\renewcommand{\bibname}{REFERENCES}
+%------------------------------------------------------------------------------
+% especially for school wishes for first page of a chapter:
+\usepackage{fancyhdr}
+% margins defined by BSU:
+\usepackage[left=1.5in,right=1in,top=1in,bottom=1in,letterpaper,includehead,includefoot,headheight=14.5pt]{geometry}
+%------------------------------------------------------------------------------
+% set captions to bold font
+\usepackage[labelfont=bf,textfont=bf]{caption}
+%------------------------------------------------------------------------------
+% set the format of \section title and the correct spacing
+\usepackage{titlesec}
+% \titlespacing* means no indent on first paragraph after section title
+
+% section
+\titlespacing*{\section}{0pt}{0em}{0pt}{}
+\titleformat{\section}[hang]
+  {\normalfont\Large\bfseries\centering}
+  {\thetitle}
+  {1em}
+  {}
+
+% subsection
+\titlespacing*{\subsection}{0pt}{0em}{0pt}{}
+\titleformat{\subsection}[hang]
+  {\normalfont\large\bfseries}
+  {\thetitle}
+  {1em}
+  {}
+%------------------------------------------------------------------------------
+% use this for title on final reading page
+\usepackage{tabularx}
+%------------------------------------------------------------------------------
+\def\degree#1{\gdef\@degree{#1}}
+\def\discipline#1{\gdef\@discipline{#1}}
+\def\oralexamdate#1{\gdef\@oralexamdate{#1}}
+%------------------------------------------------------------------------------
+% advisor
+\def\advisor{\@ifnextchar[{\@advisor}{\@advisor[Co-Chair, Supervisory Committee]}}
+\def\@advisor[#1]#2#3{\gdef\@advisorname{#2}\gdef\@advisortitle{#3}
+\gdef\@advisorfunction{#1}}
+% committe member A
+\def\committeeMemberA{\@ifnextchar[{\@committeeMemberA}{\@committeeMemberA[Member, Supervisory Committee]}}
+\def\@committeeMemberA[#1]#2#3{\gdef\@committeeMemberAname{#2}\gdef\@committeeMemberAtitle{#3}
+\gdef\@committeeMemberAfunction{#1}}
+% committe member B
+\def\committeeMemberB{\@ifnextchar[{\@committeeMemberB}{\@committeeMemberB[Member, Supervisory Committee]}}
+\def\@committeeMemberB[#1]#2#3{\gdef\@committeeMemberBname{#2}\gdef\@committeeMemberBtitle{#3}
+\gdef\@committeeMemberBfunction{#1}}
+
+% committe member C
+\def\committeeMemberC{\@ifnextchar[{\@committeeMemberC}{\@committeeMemberC[Member, Supervisory Committee]}}
+\def\@committeeMemberC[#1]#2#3{\gdef\@committeeMemberCname{#2}\gdef\@committeeMemberCtitle{#3}
+\gdef\@committeeMemberCfunction{#1}}
+
+% committe member D
+\def\committeeMemberD{\@ifnextchar[{\@committeeMemberD}{\@committeeMemberD[Member, Supervisory Committee]}}
+\def\@committeeMemberD[#1]#2#3{\gdef\@committeeMemberDname{#2}\gdef\@committeeMemberDtitle{#3}
+\gdef\@committeeMemberDfunction{#1}}
+
+% committe member E
+\def\committeeMemberE{\@ifnextchar[{\@committeeMemberE}{\@committeeMemberE[Member, Supervisory Committee]}}
+\def\@committeeMemberE[#1]#2#3{\gdef\@committeeMemberEname{#2}\gdef\@committeeMemberEtitle{#3}
+\gdef\@committeeMemberEfunction{#1}}
+
+%------------------------------------------------------------------------------
+% co-advisor
+\def\coadvisor{\@ifnextchar[{\@coadvisor}{\@coadvisor[Co-Chair, Supervisory Committee]}}
+\def\@coadvisor[#1]#2#3{\gdef\@coadvisorname{#2}\gdef\@coadvisortitle{#3}
+\gdef\@coadvisorfunction{#1}}
+%------------------------------------------------------------------------------
+% dean
+\def\dean#1#2{\gdef\@deanname{#1}\gdef\@deantitle{#2}}
+%------------------------------------------------------------------------------
+% external member
+% \def\extmember{\@ifnextchar[{\@extmember}{\@advisor[Thesis Advisor]}}
+% \def\extmember#1#2#3{\gdef\@extname{#1}\gdef\@exttitle{#2}
+% \gdef\@extinstitution{#3}}
+%------------------------------------------------------------------------------
+% \def\dedication#1{\gdef\@dedication{#1}}
+% \def\makededication{\cleardoublepage
+% \vspace*{2.5cm}
+% \begin{flushright}
+% \@dedication
+% \end{flushright}
+% }
+% \gdef\@dedication{}
+%------------------------------------------------------------------------------
+% title page:
+\def\maketitle{\cleardoublepage
+  \begin{titlepage}%
+    % \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
+    \begin{adjustwidth}{0.0in}{}%this slides the left margin 0.5in
+      % \setcounter{page}{1}%
+      \pagenumbering{roman}
+      \begin{center}%
+      \vspace*{0.1in}
+        {\large \MakeUppercase{\@title} \par}%   
+        \vfill                     % Vertical space after title.
+        {by\\}              % Set author in \normalsize.
+        {\@author}
+        \vfill
+        A dissertation\\
+        submitted in partial fulfillment \\
+        of the requirements for the degree of\\
+        \@degree~in~\@discipline\\
+        Boise State University
+        
+        \vspace*{0.5in}
+        % \monthname[5] \number\year
+        \@date
+        % \monthname[5] stands for May. Adjust accordingly
+
+        \end{center}\par
+        \end{adjustwidth}
+  \end{titlepage}%
+  % \setcounter{footnote}{0}% % Footnotes start at zero again.
+  % \let\thanks\relax \gdef\@thanks{}
+  \let\maketitle\relax}
+%% end changes to titlepag.sty
+%------------------------------------------------------------------------------ 
+% submittal sheet (might differ from department to department!)
+\def\submittalsheet{
+\cleardoublepage 
+% \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
+\begin{adjustwidth}{0.0in}{}%this slides the left margin 0.5in
+
+\begin{center}
+BOISE STATE UNIVERSITY GRADUATE COLLEGE\\
+\vspace{\baselineskip}
+\textbf{DEFENSE COMMITTEE AND FINAL READING APPROVALS}\\
+\vspace{\baselineskip}
+of the thesis submitted by\\
+\vspace{\baselineskip}
+{\@author}\\
+\vspace{\baselineskip}
+\end{center}
+
+\begin{flushleft}
+
+\begin{singlespace}
+\begin{tabularx}{\textwidth}{@{}lX} 
+Thesis Title: & {\@title}
+\end{tabularx}
+\end{singlespace}
+
+\begin{tabularx}{\textwidth}{@{}lX} 
+Date of Final Oral Examination: & {\@oralexamdate}
+\end{tabularx}
+
+\end{flushleft}
+
+\begin{singlespace}
+\noindent The following individuals read and discussed the dissertation submitted by student {\@author}, and they evaluated the student’s presentation and response to questions during the final oral examination. They found that the student passed the final oral examination.\\
+\end{singlespace}
+
+\begin{flushleft}
+\begin{tabular}{@{}ll} 
+{\@advisorname} {\@advisortitle} \hspace{2cm} & {\@advisorfunction} \\ 
+{\@coadvisorname} {\@coadvisortitle} \hspace{2cm} & {\@coadvisorfunction} \\ 
+{\@committeeMemberAname} {\@committeeMemberAtitle} \hspace{2cm} & {\@committeeMemberAfunction} \\ 
+{\@committeeMemberBname} {\@committeeMemberBtitle} \hspace{2cm} & {\@committeeMemberBfunction} \\
+{\@committeeMemberCname} {\@committeeMemberCtitle} \hspace{2cm} & {\@committeeMemberCfunction} \\
+{\@committeeMemberDname} {\@committeeMemberDtitle} \hspace{2cm} & {\@committeeMemberDfunction} \\
+{\@committeeMemberEname} {\@committeeMemberEtitle} \hspace{2cm} & {\@committeeMemberEfunction}
+\end{tabular}
+\end{flushleft}
+
+\begin{singlespace}
+\noindent The final reading approval of the thesis was granted by {\@advisorname} {\@advisortitle} and {\@coadvisorname} {\@coadvisortitle}, Chairs of the Supervisory Committee. The thesis was approved by the Graduate College.
+\end{singlespace}
+
+\thispagestyle{empty}
+\end{adjustwidth}
+
+\par\vfil\null\newpage
+\gdef\@author{}
+\gdef\@advisorname{} \gdef\@advisortitle{} \gdef\@advisorfunction{}
+\gdef\@deanname{} \gdef\@deantitle{} \gdef\@extname{}  \gdef\@exttitle{}
+\gdef\@extinstitution{}
+\let\submittalsheet\relax}
+%------------------------------------------------------------------------------
+% here's the copyright page (if you want one):
+\def\makecopyright{
+% \cleardoublepage
+\null
+\vfill
+% \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
+\begin{adjustwidth}{0in}{}%this slides the left margin 0.5in
+\begin{center}
+{$\copyright$ \number\year \par \@author}\\
+{\sc ALL RIGHTS RESERVED}
+\end{center}
+\thispagestyle{empty}
+\end{adjustwidth}
+\let\maketitle\relax\let\makecopyright\relax}
+%------------------------------------------------------------------------------
+% resetting some things for the actual text in thesis:
+\def\begintext{
+% \cleardoublepage
+\clearpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\pagestyle{myheadings}
+  % for the special first page of a chapter:
+  \fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyhead[RO]{\hfill \thepage}
+  \renewcommand\headrulewidth{0pt}
+  \renewcommand\footrulewidth{0pt}
+  \renewcommand\headsep{0pt}
+  \renewcommand\footskip{4.5pt}}
+  }
+%------------------------------------------------------------------------------
+% to set the style of the table of content:
+\renewcommand\contentsname{table of contents}
+% \renewcommand*{\l@chapter}[2]{%
+%   \l@chapapp{\uppercase{#1}}{#2}{\cftchaptername}}
+% \makeatother
+
+\renewcommand*\l@chapter[2]{%
+\ifnum \c@tocdepth >\m@ne
+  \addpenalty{-\@highpenalty}%
+  \vskip 1.0em \@plus\p@
+  \setlength\@tempdima{1.5em}%
+  \begingroup
+  \parindent \z@ \rightskip \@pnumwidth
+  \parfillskip -\@pnumwidth
+  \leavevmode 
+  \advance\leftskip\@tempdima
+  \hskip -\leftskip
+  \uppercase{#1}\nobreak\ 
+  \leaders\hbox{$\m@th
+  \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+  mu$}\hfil\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+  \penalty\@highpenalty
+  \endgroup
+  \fi} 
+%------------------------------------------------------------------------------
+% this is the definition for \chapter{}
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+  \ifnum \c@secnumdepth >\m@ne
+    \centering \Large\bfseries\MakeUppercase \@chapapp\space \thechapter : % colon here fixes as well as upper case
+    \par\nobreak
+    % \vskip 20\p@
+    \fi
+    \interlinepenalty\@M
+    \Large\bfseries \MakeUppercase{#1}\par\nobreak % makeuppercase here sets the actual uppercase
+    %\vskip 40\p@
+    \vskip 12\p@
+    }
+    }
+%------------------------------------------------------------------------------
+% this is the definition with \chatper*{}...I also made this uppercase
+% this part is important because TOC, LOF, LOT headers are set using
+% this. So we need to set \Large to match the chatper size
+\def\@makeschapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright
+  \normalfont
+  \interlinepenalty\@M
+    \centering \Large \bfseries \MakeUppercase{#1}\par\nobreak % uppercase here and set \Large to match
+    % \vskip 40\p@
+    \vskip 12\p@
+    }
+    }
+% %------------------------------------------------------------------------------
+% \renewcommand\section{\@startsection {section}{1}{\z@}%
+%                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
+%                                    {2.3ex \@plus.2ex}%
+%                                    {\centering\normalfont\Large\bfseries}}
+% %------------------------------------------------------------------------------
