@@ -1,6 +1,6 @@
-% Here is the style file for BSU theses. DO NOT CHANGE. If you 
-% think you have found a bug, please email
-% bsulatex@cigss.boisestate.edu
+% Here is the style file for BSU theses. DO NOT CHANGE. 
+% If you think you have found a bug, please open an issue at 
+% https://github.com/dylanmikesell/BSU_LaTeX_Thesis_Template/issues
 
 % for a times roman font:
 %\usepackage{mathptmx}
@@ -31,7 +31,7 @@
 \usepackage{graphicx}
 %------------------------------------------------------------------------------
 % this is needed for spacing:
-\usepackage{setspace} 
+\usepackage{setspace}
 \doublespacing
 %------------------------------------------------------------------------------
 % this is needed for the month year format
@@ -58,18 +58,18 @@
 % section
 \titlespacing*{\section}{0pt}{0em}{0pt}{}
 \titleformat{\section}[hang]
-  {\normalfont\Large\bfseries\centering}
-  {\thetitle}
-  {1em}
-  {}
+{\normalfont\Large\bfseries\centering}
+{\thetitle}
+{1em}
+{}
 
 % subsection
 \titlespacing*{\subsection}{0pt}{0em}{0pt}{}
 \titleformat{\subsection}[hang]
-  {\normalfont\large\bfseries}
-  {\thetitle}
-  {1em}
-  {}
+{\normalfont\large\bfseries}
+{\thetitle}
+{1em}
+{}
 %------------------------------------------------------------------------------
 % use this for title on final reading page
 \usepackage{tabularx}
@@ -81,15 +81,15 @@
 % advisor
 \def\advisor{\@ifnextchar[{\@advisor}{\@advisor[Chair, Supervisory Committee]}}
 \def\@advisor[#1]#2#3{\gdef\@advisorname{#2}\gdef\@advisortitle{#3}
-\gdef\@advisorfunction{#1}}
+  \gdef\@advisorfunction{#1}}
 % committe member A
 \def\committeeMemberA{\@ifnextchar[{\@committeeMemberA}{\@committeeMemberA[Member, Supervisory Committee]}}
 \def\@committeeMemberA[#1]#2#3{\gdef\@committeeMemberAname{#2}\gdef\@committeeMemberAtitle{#3}
-\gdef\@committeeMemberAfunction{#1}}
+  \gdef\@committeeMemberAfunction{#1}}
 % committe member B
 \def\committeeMemberB{\@ifnextchar[{\@committeeMemberB}{\@committeeMemberB[Member, Supervisory Committee]}}
 \def\@committeeMemberB[#1]#2#3{\gdef\@committeeMemberBname{#2}\gdef\@committeeMemberBtitle{#3}
-\gdef\@committeeMemberBfunction{#1}}
+  \gdef\@committeeMemberBfunction{#1}}
 
 %------------------------------------------------------------------------------
 % co-advisor
@@ -122,7 +122,7 @@
       % \setcounter{page}{1}%
       \pagenumbering{roman}
       \begin{center}%
-      \vspace*{0.1in}
+        \vspace*{0.1in}
         {\large \MakeUppercase{\@title} \par}%   
         \vfill                     % Vertical space after title.
         {by\\}              % Set author in \normalsize.
@@ -133,14 +133,14 @@
         of the requirements for the degree of\\
         \@degree~in~\@discipline\\
         Boise State University
-        
+
         \vspace*{0.5in}
         % \monthname[5] \number\year
         \@date
         % \monthname[5] stands for May. Adjust accordingly
 
-        \end{center}\par
-        \end{adjustwidth}
+      \end{center}\par
+    \end{adjustwidth}
   \end{titlepage}%
   % \setcounter{footnote}{0}% % Footnotes start at zero again.
   % \let\thanks\relax \gdef\@thanks{}
@@ -149,92 +149,92 @@
 %------------------------------------------------------------------------------ 
 % submittal sheet (might differ from department to department!)
 \def\submittalsheet{
-\cleardoublepage 
-% \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
-\begin{adjustwidth}{0.0in}{}%this slides the left margin 0.5in
+  \cleardoublepage
+  % \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
+  \begin{adjustwidth}{0.0in}{}%this slides the left margin 0.5in
 
-\begin{center}
-BOISE STATE UNIVERSITY GRADUATE COLLEGE\\
-\vspace{\baselineskip}
-\textbf{DEFENSE COMMITTEE AND FINAL READING APPROVALS}\\
-\vspace{\baselineskip}
-of the thesis submitted by\\
-\vspace{\baselineskip}
-{\@author}\\
-\vspace{\baselineskip}
-\end{center}
+    \begin{center}
+      BOISE STATE UNIVERSITY GRADUATE COLLEGE\\
+      \vspace{\baselineskip}
+      \textbf{DEFENSE COMMITTEE AND FINAL READING APPROVALS}\\
+      \vspace{\baselineskip}
+      of the thesis submitted by\\
+      \vspace{\baselineskip}
+      {\@author}\\
+      \vspace{\baselineskip}
+    \end{center}
 
-\begin{flushleft}
+    \begin{flushleft}
 
-\begin{singlespace}
-\begin{tabularx}{\textwidth}{@{}lX} 
-Thesis Title: & {\@title}
-\end{tabularx}
-\end{singlespace}
+      \begin{singlespace}
+        \begin{tabularx}{\textwidth}{@{}lX}
+          Thesis Title: & {\@title}
+        \end{tabularx}
+      \end{singlespace}
 
-\begin{tabularx}{\textwidth}{@{}lX} 
-Date of Final Oral Examination: & {\@oralexamdate}
-\end{tabularx}
+      \begin{tabularx}{\textwidth}{@{}lX}
+        Date of Final Oral Examination: & {\@oralexamdate}
+      \end{tabularx}
 
-\end{flushleft}
+    \end{flushleft}
 
-\begin{singlespace}
-\noindent The following individuals read and discussed the dissertation submitted by student {\@author}, and they evaluated the student’s presentation and response to questions during the final oral examination. They found that the student passed the final oral examination.\\
-\end{singlespace}
+    \begin{singlespace}
+      \noindent The following individuals read and discussed the dissertation submitted by student {\@author}, and they evaluated the student’s presentation and response to questions during the final oral examination. They found that the student passed the final oral examination.\\
+    \end{singlespace}
 
-\begin{flushleft}
-\begin{tabular}{@{}ll} 
-{\@advisorname} {\@advisortitle} \hspace{2cm} & {\@advisorfunction} \\ 
-{\@committeeMemberAname} {\@committeeMemberAtitle} \hspace{2cm} & {\@committeeMemberAfunction} \\ 
-{\@committeeMemberBname} {\@committeeMemberBtitle} \hspace{2cm} & {\@committeeMemberBfunction}
-\end{tabular}
-\end{flushleft}
+    \begin{flushleft}
+      \begin{tabular}{@{}ll}
+        {\@advisorname} {\@advisortitle} \hspace{2cm}                   & {\@advisorfunction}          \\
+        {\@committeeMemberAname} {\@committeeMemberAtitle} \hspace{2cm} & {\@committeeMemberAfunction} \\
+        {\@committeeMemberBname} {\@committeeMemberBtitle} \hspace{2cm} & {\@committeeMemberBfunction}
+      \end{tabular}
+    \end{flushleft}
 
-\begin{singlespace}
-\noindent The final reading approval of the thesis was granted by {\@advisorname} {\@advisortitle}, Chair of the Supervisory Committee. The thesis was approved by the Graduate College.
-\end{singlespace}
+    \begin{singlespace}
+      \noindent The final reading approval of the thesis was granted by {\@advisorname} {\@advisortitle}, Chair of the Supervisory Committee. The thesis was approved by the Graduate College.
+    \end{singlespace}
 
-\thispagestyle{empty}
-\end{adjustwidth}
+    \thispagestyle{empty}
+  \end{adjustwidth}
 
-\par\vfil\null\newpage
-\gdef\@author{}
-\gdef\@advisorname{} \gdef\@advisortitle{} \gdef\@advisorfunction{}
-\gdef\@deanname{} \gdef\@deantitle{} \gdef\@extname{}  \gdef\@exttitle{}
-\gdef\@extinstitution{}
-\let\submittalsheet\relax}
+  \par\vfil\null\newpage
+  \gdef\@author{}
+  \gdef\@advisorname{} \gdef\@advisortitle{} \gdef\@advisorfunction{}
+  \gdef\@deanname{} \gdef\@deantitle{} \gdef\@extname{}  \gdef\@exttitle{}
+  \gdef\@extinstitution{}
+  \let\submittalsheet\relax}
 %------------------------------------------------------------------------------
 % here's the copyright page (if you want one):
 \def\makecopyright{
-% \cleardoublepage
-\null
-\vfill
-% \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
-\begin{adjustwidth}{0in}{}%this slides the left margin 0.5in
-\begin{center}
-{$\copyright$ \number\year \par \@author}\\
-{\sc ALL RIGHTS RESERVED}
-\end{center}
-\thispagestyle{empty}
-\end{adjustwidth}
-\let\maketitle\relax\let\makecopyright\relax}
+  % \cleardoublepage
+  \null
+  \vfill
+  % \begin{adjustwidth}{-0.5in}{}%this slides the left margin 0.5in
+  \begin{adjustwidth}{0in}{}%this slides the left margin 0.5in
+    \begin{center}
+      {$\copyright$ \number\year \par \@author}\\
+      {\sc ALL RIGHTS RESERVED}
+    \end{center}
+    \thispagestyle{empty}
+  \end{adjustwidth}
+  \let\maketitle\relax\let\makecopyright\relax}
 %------------------------------------------------------------------------------
 % resetting some things for the actual text in thesis:
 \def\begintext{
-% \cleardoublepage
-\clearpage
-\setcounter{page}{1}
-\pagenumbering{arabic}
-\pagestyle{myheadings}
+  % \cleardoublepage
+  \clearpage
+  \setcounter{page}{1}
+  \pagenumbering{arabic}
+  \pagestyle{myheadings}
   % for the special first page of a chapter:
   \fancypagestyle{plain}{%
-  \fancyhf{}
-  \fancyhead[RO]{\hfill \thepage}
-  \renewcommand\headrulewidth{0pt}
-  \renewcommand\footrulewidth{0pt}
-  \renewcommand\headsep{0pt}
-  \renewcommand\footskip{4.5pt}}
-  }
+    \fancyhf{}
+    \fancyhead[LE,RO]{\thepage}
+    \renewcommand\headrulewidth{0pt}
+    \renewcommand\footrulewidth{0pt}
+    \renewcommand\headsep{0pt}
+    \renewcommand\footskip{4.5pt}}
+}
 %------------------------------------------------------------------------------
 % to set the style of the table of content:
 \renewcommand\contentsname{table of contents}
@@ -243,39 +243,39 @@ Date of Final Oral Examination: & {\@oralexamdate}
 % \makeatother
 
 \renewcommand*\l@chapter[2]{%
-\ifnum \c@tocdepth >\m@ne
-  \addpenalty{-\@highpenalty}%
-  \vskip 1.0em \@plus\p@
-  \setlength\@tempdima{1.5em}%
-  \begingroup
-  \parindent \z@ \rightskip \@pnumwidth
-  \parfillskip -\@pnumwidth
-  \leavevmode 
-  \advance\leftskip\@tempdima
-  \hskip -\leftskip
-  \uppercase{#1}\nobreak\ 
-  \leaders\hbox{$\m@th
-  \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
-  mu$}\hfil\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
-  \penalty\@highpenalty
-  \endgroup
-  \fi} 
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+    \parindent \z@ \rightskip \@pnumwidth
+    \parfillskip -\@pnumwidth
+    \leavevmode
+    \advance\leftskip\@tempdima
+    \hskip -\leftskip
+    \uppercase{#1}\nobreak\
+    \leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfil\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+    \penalty\@highpenalty
+    \endgroup
+  \fi}
 %------------------------------------------------------------------------------
 % this is the definition for \chapter{}
 \def\@makechapterhead#1{%
   \vspace*{50\p@}%
   {\parindent \z@ \raggedright \normalfont
-  \ifnum \c@secnumdepth >\m@ne
-    \centering \Large\bfseries\MakeUppercase \@chapapp\space \thechapter : % colon here fixes as well as upper case
-    \par\nobreak
-    % \vskip 20\p@
+    \ifnum \c@secnumdepth >\m@ne
+      \centering \Large\bfseries\MakeUppercase \@chapapp\space \thechapter : % colon here fixes as well as upper case
+      \par\nobreak
+      % \vskip 20\p@
     \fi
     \interlinepenalty\@M
     \Large\bfseries \MakeUppercase{#1}\par\nobreak % makeuppercase here sets the actual uppercase
     %\vskip 40\p@
     \vskip 12\p@
-    }
-    }
+  }
+}
 %------------------------------------------------------------------------------
 % this is the definition with \chatper*{}...I also made this uppercase
 % this part is important because TOC, LOF, LOT headers are set using
@@ -283,13 +283,13 @@ Date of Final Oral Examination: & {\@oralexamdate}
 \def\@makeschapterhead#1{%
   \vspace*{50\p@}%
   {\parindent \z@ \raggedright
-  \normalfont
-  \interlinepenalty\@M
+    \normalfont
+    \interlinepenalty\@M
     \centering \Large \bfseries \MakeUppercase{#1}\par\nobreak % uppercase here and set \Large to match
     % \vskip 40\p@
     \vskip 12\p@
-    }
-    }
+  }
+}
 % %------------------------------------------------------------------------------
 % \renewcommand\section{\@startsection {section}{1}{\z@}%
 %                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
