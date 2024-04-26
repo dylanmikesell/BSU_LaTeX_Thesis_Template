@@ -2,4 +2,14 @@ MATH_stylefiles
 README.html
 src/main.tex
 
+**/*.acn
+**/*.acr
+**/*.alg
+**/*.glg
+**/*.glo
+**/*.gls
+**/*.ist
+**/*.nlo
+**/*.pdf
+**/*.gz
 
