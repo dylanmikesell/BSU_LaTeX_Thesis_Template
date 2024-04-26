@@ -90,6 +90,10 @@
 \def\committeeMemberB{\@ifnextchar[{\@committeeMemberB}{\@committeeMemberB[Member, Supervisory Committee]}}
 \def\@committeeMemberB[#1]#2#3{\gdef\@committeeMemberBname{#2}\gdef\@committeeMemberBtitle{#3}
   \gdef\@committeeMemberBfunction{#1}}
+% committee member C
+\def\committeeMemberC{\@ifnextchar[{\@committeeMemberC}{\@committeeMemberC[Member, Supervisory Committee]}}
+\def\@committeeMemberC[#1]#2#3{\gdef\@committeeMemberCname{#2}\gdef\@committeeMemberCtitle{#3}
+  \gdef\@committeeMemberCfunction{#1}}
 
 %------------------------------------------------------------------------------
 % co-advisor
@@ -186,7 +190,8 @@
       \begin{tabular}{@{}ll}
         {\@advisorname} {\@advisortitle} \hspace{2cm}                   & {\@advisorfunction}          \\
         {\@committeeMemberAname} {\@committeeMemberAtitle} \hspace{2cm} & {\@committeeMemberAfunction} \\
-        {\@committeeMemberBname} {\@committeeMemberBtitle} \hspace{2cm} & {\@committeeMemberBfunction}
+        {\@committeeMemberBname} {\@committeeMemberBtitle} \hspace{2cm} & {\@committeeMemberBfunction} \\
+        {\@committeeMemberCname} {\@committeeMemberCtitle} \hspace{2cm} & {\@committeeMemberCfunction}
       \end{tabular}
     \end{flushleft}
 
